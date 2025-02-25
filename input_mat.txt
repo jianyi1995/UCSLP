@@ -1,0 +1,40 @@
+You need to pick the best solution from the given two solutions (s_1,s_2)  according to the problem definition. The final output only includes the best solution.
+
+Problem definition:
+LetV=V^U\cup V^S\left(V^U\cap V^S=\emptyset\right) be the vertex set, where V^U represent the set of \left|V^U\right| users who need to charge their electric vehicles,V^S represent the set of \left|V^S\right| locations for building charging stations. Each node i\in V is associated with a coordinate \left(x_i,y_i\right) on the two-dimensional plane. The distance d_{i,j} between nodes i,j is Manhattan distance as defined in (1). The charging time and charging fee are defined as t and cf, respectively. Each charging station i is characterized by the number cp_i of charging piles and the running cost c_i. The binary variable z_i=1 indicates that the charging station i\in V^S is in use, while z_i=0 means that it is closed. Let cs_i\ represent the charging station serving the user i\in V^U as in (2). Let sn_i represent the number of users served by station i as in (3), where 𝟙 is the indicator function. The total waiting time wt_i of each station i\in V^S is defined in (4), where 24 is the number of hours in a day. The first objective function is to minimize the waiting time of charging electric vehicles presented in (5). The second objective function is to maximize the revenue from operating charging stations as in (6). 
+	d_{i,j}=\left|x_i-x_j\right|+\left|y_i-y_j\right|	
+	cs_i={\rm argmin}\below{j\in V^S,z_i=1}{d_{i,j}},\forall i\in V^U	2
+	sn_i=\sum_{j\in V^U}\mathbb{1}\left(cs_j=i\right),\forall i\in V^S	3
+	wt_i=\left(max\left(0,\frac{sn_i}{cp_i}-\frac{24}{t}\right)\right)^2	4
+	\min{\sum_{i\in V^S}{wt_i}}	5
+	\max{cf\times\left|V^U\right|-\sum_{i\in V^S}{z_i\times c_i}}	6
+
+Instance:
+V^U={v_1,v_2,…,v_10}
+V^S={v_11,v_12,v_13,v_14}
+Coordinates from v_1 to v_14 are:
+(10, 5)
+(9, 3)
+(12, 10)
+(4,3)
+(7, 10)
+(0, 11)
+(7, 1)
+(1, 0)
+(8, 9)
+(2, 4)
+(15, 9)
+(7, 12)
+(15, 14)
+(4, 7)
+Charging time t=360
+Charging fee cf=10
+Number cp_i of charging piles and the running cost c_i of charging station v_11 to v_14 are:
+1, 6
+1, 7
+2, 13
+2, 8
+
+Reference solutions:
+s_1: {z_{v_11} = 1, z_{v_12}=1, z_{v_13}=0, z_{v_14}=0}.
+s_2: {z_{v_11} = 1, z_{v_12}=0, z_{v_13}=0, z_{v_14}=1}.
