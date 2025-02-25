@@ -46,7 +46,7 @@ if __name__ == '__main__':
     num_stations = 4
     x_range = (0, 15)
     y_range = (0, 15)
-    charging_time_range = (60, 60)
+    charging_time_range = (360, 360)
     charging_fee_range = (10, 10)
     num_piles_range = (1, 3)
     cost_range = (4, 8)

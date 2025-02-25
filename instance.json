@@ -59,7 +59,7 @@
             7
         ]
     ],
-    "charging_times": 60,
+    "charging_times": 360,
     "charging_fees": 10,
     "num_piles": [
         1,
